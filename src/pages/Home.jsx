@@ -60,7 +60,7 @@ function Home() {
               <code>
 {`const developer = {
   name: '${name}',
-  skills: ['.NET', 'Blazor', 'React.js'],
+  skills: ['.NET', 'Blazor', 'React.js','SQL Server'],
   passion: 'Building great apps',
   available: true,
   coffee: Infinity
