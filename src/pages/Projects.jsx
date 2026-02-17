@@ -9,7 +9,7 @@ function Projects() {
       <div className="projects-header">
         <h1 className="section-title">Featured Projects</h1>
         <p className="projects-subtitle">
-          Some of the projects I've worked on
+          Selected projects I have worked on that are fully deployed.
         </p>
       </div>
 

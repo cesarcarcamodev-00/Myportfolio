@@ -21,12 +21,34 @@ function Contact() {
     })
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setIsSubmitted(true)
-    setTimeout(() => setIsSubmitted(false), 3000)
-    setFormData({ name: '', email: '', subject: '', message: '' })
-  }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    // 1. Prepare the data
+    const formDataToSubmit = new FormData(e.target);
+
+    // 2. Send the request via fetch
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formDataToSubmit
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setTimeout(() => setIsSubmitted(false), 5000);
+      } else {
+        console.log("Error", data);
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.log("Fetch error", error);
+      alert("Submission failed. Check your internet connection.");
+    }
+  };
 
   const contactInfo = [
     { icon: '✉', label: 'Email', value: email },
@@ -66,8 +88,9 @@ function Contact() {
           </div>
 
           <div className="contact-form-wrapper">
-            <form className="contact-form" onSubmit={handleSubmit}>
-              <div className="form-row">
+            <form className="contact-form"  onSubmit={handleSubmit}>
+              <input type="hidden" name="access_key" value="658c63f2-f7a4-4f6c-8f98-b026e18cbe79" />
+            <div className="form-row">
                 <div className="form-group">
                   <label htmlFor="name">Name</label>
                   <input

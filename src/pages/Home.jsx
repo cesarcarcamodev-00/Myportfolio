@@ -2,7 +2,7 @@ import { siteConfig } from '../data/config'
 import './Home.css'
 
 function Home() {
-  const { name, title, hero } = siteConfig
+  const { name, title, hero, role } = siteConfig
 
   const handleClick = (e, id) => {
     e.preventDefault()
@@ -28,7 +28,7 @@ function Home() {
             <span className="name-accent">{title}</span>
           </h1>
           
-          <p className="hero-title">{title}</p>
+          <p className="hero-title">{role}</p>
           
           <p className="hero-description">
             {hero.description}
