@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: 'Cesar',
   title: 'Software Developer',
-  role: 'Full Stack Web Developer',
+  role: 'Full Stack',
   email: 'cesarcarcamo.dev@gmail.com',
   location: 'San Pedro Sula, Honduras',
   availability: 'Open to opportunities',
